@@ -1,6 +1,7 @@
 const express = require("express");
 const { initializeApp } = require("firebase/app");
 const { getDatabase, ref, onValue } = require("firebase/database");
+const moment = require("moment-timezone");
 
 // Initialize Firebase Admin SDK
 const firebaseConfig = {
@@ -26,7 +27,17 @@ app.get("/data", async (req, res) => {
       onValue(dbRef, resolve, reject); // Listen for changes and resolve the promise
     });
     const data = snapshot.val(); // Get the value from the snapshot
-    res.json(data);
+
+    // Get current date and time in Colombo
+    const currentDateTime = moment().tz("Asia/Colombo").format();
+
+    const responseData = {
+      data,
+      timestamp: currentDateTime,
+    };
+
+    res.json(responseData);
+    console.log(responseData);
   } catch (error) {
     console.error("Error fetching data:", error);
     res.status(500).json({ error: "Internal Server Error" });
