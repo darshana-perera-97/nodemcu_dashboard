@@ -6,7 +6,9 @@ export default function Design() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3001/data");
+        const response = await fetch(
+          "https://nodemcu-dashboard.onrender.com/data"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -29,7 +31,7 @@ export default function Design() {
 
   return (
     <div>
-      <h1>Design</h1>
+      <h1>Dashboard - Nodemcu</h1>
       {data && (
         <div>
           {/* Display fetched data */}
