@@ -1,11 +1,14 @@
 import logo from "./logo.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Design from "./Design/Design";
+import Pages from "./Design/Pages";
 
 function App() {
   return (
     <div>
-      <Design />
+      {/* <Design /> */}
+      <Pages />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

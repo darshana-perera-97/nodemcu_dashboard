@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+.dashboard-topbar .product-logo {
+    height: 40px;
+    margin-right: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dashboard-topbar {
+    background: #e6e6e650;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+    color: #0771a0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.data-card {
+    cursor: pointer;
+    border: 0px solid black;
+    box-shadow: 0px 0px 15px #00000030;
+    margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.warning-card {
+    opacity: 0.5;
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.warning-card-active {
+    cursor: pointer;
+    background: #f00;
+    color: #ffffff;
+    font-weight: bold;
+    animation: pulse 1s infinite;
+}
+
+.warning-card-active h4 {
+    font-weight: 500 !important;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.state {
+    background-color: #008cff20;
+}
+
+.temp {
+    background-color: #f9b73d20;
+}
+
+.battery {
+    background-color: #ff00d420;
+}
+
+.state:hover {
+    background-color: #008cff40;
+}
+
+.temp:hover {
+    background-color: #f9b73d40;
+}
+
+.battery:hover {
+    background-color: #ff00d440;
+}
+
+.active .warning-card {
+    opacity: 1.0;
+    cursor: pointer;
+    background-color: #f00;
 }
