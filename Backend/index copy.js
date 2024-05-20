@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors"); // Add this line
 const { initializeApp } = require("firebase/app");
 const { getDatabase, ref, onValue } = require("firebase/database");
 const moment = require("moment-timezone");
@@ -19,7 +18,6 @@ const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase();
 
 const app = express();
-app.use(cors()); // Add this line
 
 // Define a route to fetch data
 app.get("/data", async (req, res) => {
@@ -47,7 +45,7 @@ app.get("/data", async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

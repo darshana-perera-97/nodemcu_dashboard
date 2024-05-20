@@ -2,6 +2,7 @@ import React from "react";
 import SideNavBar from "./Layout/SideNavbar";
 import Dashboard from "./Layout/Dashboard";
 import LoginScreen from "./Layout/LoginScreen";
+import Dashboard2 from "./Layout/Dashboard2";
 
 export default function Pages() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -16,7 +17,8 @@ export default function Pages() {
   return (
     <div>
       {/* <SideNavBar/> */}
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <Dashboard2 />
       {/* <LoginScreen /> */}
       {/* {isLoggedIn ? (
         <div>
