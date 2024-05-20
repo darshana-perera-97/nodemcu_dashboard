@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const port = 3000;
+const port = 3002;
 
 // Use CORS middleware
 app.use(cors());
@@ -14,6 +14,7 @@ app.use(express.json());
 // Define a basic route
 app.get('/', (req, res) => {
   res.send('Hello World!');
+  console.log("first")
 });
 
 // Define another route for demonstration
