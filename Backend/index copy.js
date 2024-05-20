@@ -45,7 +45,7 @@ app.get("/data", async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
