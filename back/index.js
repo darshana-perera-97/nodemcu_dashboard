@@ -1,8 +1,9 @@
 const express = require("express");
-const admin = require("firebase-admin");
+const { initializeApp } = require("firebase/app");
+const { getDatabase, ref, onValue } = require("firebase/database");
+const moment = require("moment-timezone");
 
-// Replace with placeholders for security reasons (get from Firebase console)
-const serviceAccount = require("./path/to/your/serviceAccountKey.json"); // Path to service account key file
+// Initialize Firebase Admin SDK
 const firebaseConfig = {
   apiKey: "AIzaSyAuU5qac9KqPpLt4_d6B5OEKPZWua5YqVk",
   authDomain: "atm--project.firebaseapp.com",
@@ -13,27 +14,38 @@ const firebaseConfig = {
   messagingSenderId: "5612719051",
   appId: "1:5612719051:web:28b7904ad325f86b39c44e",
 };
-// Initialize Firebase Admin app securely (avoid hardcoding credentials)
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: firebaseConfig.databaseURL, // Optional, if using Realtime Database
-});
-
-const db = admin.database(); // Reference to the database
+const firebaseApp = initializeApp(firebaseConfig);
+const database = getDatabase();
 
 const app = express();
 
-// Endpoint to read data from Firebase Realtime Database
+// Define a route to fetch data
 app.get("/data", async (req, res) => {
   try {
-    const snapshot = await db.ref().once("value"); // Get data from root reference
-    const data = snapshot.val();
-    res.json(data); // Send data as JSON response
+    const dbRef = ref(database);
+    const snapshot = await new Promise((resolve, reject) => {
+      onValue(dbRef, resolve, reject); // Listen for changes and resolve the promise
+    });
+    const data = snapshot.val(); // Get the value from the snapshot
+
+    // Get current date and time in Colombo
+    const currentDateTime = moment().tz("Asia/Colombo").format();
+
+    const responseData = {
+      data,
+      timestamp: currentDateTime,
+    };
+
+    res.json(responseData);
+    console.log(responseData);
   } catch (error) {
-    console.error("Error reading data:", error);
-    res.status(500).send("Error retrieving data"); // Send error response
+    console.error("Error fetching data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-// Start the Node.js server
-app.listen(3000, () => console.log("Server listening on port 3000"));
+// Start the server
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

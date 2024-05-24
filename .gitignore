@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /back/node_modules
+/back2/node_modules
 /Backend/node_modules
 /firebase-crud-master/node_modules
 /frontend/node_modules

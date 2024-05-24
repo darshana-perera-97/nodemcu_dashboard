@@ -7,13 +7,14 @@ export default function Design() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://nodemcu-dashboard.onrender.com/data"
+          "http://localhost:3002/data"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
         const jsonData = await response.json();
         setData(jsonData);
+        console.log(jsonData)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
