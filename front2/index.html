@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .product-logo {
+            width: 100px;
+        }
+        
+        .data-card {
+            margin-bottom: 20px;
+        }
+        
+        .warning-card {
+            background-color: #f8d7da;
+        }
+        
+        .warning-card-active {
+            background-color: #f5c6cb;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="dashboard-topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-12">
+                        <div class="content d-flex align-items-center">
+                            <img src="path_to_your_logo/ProductLogo.svg" alt="Product Logo" class="product-logo mt-4 mb-4 mr-5">
+                            <div class="dropdown ml-2">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdown-basic"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Device 001
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdown-basic">
+                                    <a class="dropdown-item" href="#">Device 002</a>
+                                    <a class="dropdown-item" href="#">Device 003</a>
+                                    <a class="dropdown-item" href="#">Device 004</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <div class="d-flex">
+                            <p class="ml-2 mt-4 mb-4 pt-2 px-2">Filter Time :</p>
+                            <div class="content d-flex align-items-center">
+                                <div class="dropdown ml-2 mt-4 mb-4">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdown-basic"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Last 5 minutes
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown-basic">
+                                        <a class="dropdown-item" href="#">Last 15 minutes</a>
+                                        <a class="dropdown-item" href="#">Last 30 minutes</a>
+                                        <a class="dropdown-item" href="#">Last 60 minutes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-contents">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-3">
+                        <h1 class="fw-light fs-1">Device Name : 0001</h1>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="mt-1 mb-4">Device State</h3>
+                                <p>Last Updated on : yyyy-mm-dd hh-mm-ss</p>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="card p-4 data-card text-center shadow-sm pb-1 state">
+                                    <h4 class="fw-light fs-4">Device State</h4>
+                                    <p class="fw-bold fs-2">Active</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="card p-4 data-card text-center shadow-sm pb-1 temp">
+                                    <h4 class="fw-light fs-4">Tempreture</h4>
+                                    <p class="fw-bold fs-2">0°C</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="card p-4 data-card text-center shadow-sm pb-1 battery">
+                                    <h4 class="fw-light fs-4">Battery Vol.</h4>
+                                    <p class="fw-bold fs-2">0V</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12 mt-4">
+                                <div class="card px-4 py-3 text-center shadow-sm warning-card">
+                                    <h4 class="fw-light fs-5 mb-0">Motion Detected</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12 mt-4">
+                                <div class="card px-4 py-3 text-center shadow-sm warning-card">
+                                    <h4 class="fw-light fs-5 mb-0">Grid Power</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12 mt-4">
+                                <div class="card px-4 py-3 text-center shadow-sm warning-card-active">
+                                    <h4 class="fw-light fs-5 mb-0">Gas Emmition</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="mt-1 mb-4">Graph View</h3>
+                            </div>
+                            <p>under construction</p>
+                            <div class="col-md-12">
+                                <h3 class="mt-1 mb-4">Location</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

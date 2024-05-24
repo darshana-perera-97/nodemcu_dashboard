@@ -1,29 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 
-export default function Dashboard2() {
-  const [motion, setMotion] = React.useState(false);
-  const [grid, setGrid] = React.useState(false);
-  const [gas, setGas] = React.useState(true);
-  const [temp, setTemp] = React.useState(0);
-  const [bat, setBat] = React.useState(0);
-  const [time, setTime] = React.useState("yyyy-mm-dd hh-mm-ss");
+const Dashboard2 = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://nodemcu-dashboard.onrender.com/data"); // Ensure this URL is correct
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:3002/data'); // Ensure this URL is correct
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    };
-  
+      const result = await response.json();
+      setData(result);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
 
-  return <div>Dashboard2</div>;
-}
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
+    <div>
+      {/* Render your data here */}
+      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+    </div>
+  );
+};
+
+export default Dashboard2;

@@ -30,6 +30,13 @@
     font-weight: bold;
     animation: pulse 1s infinite;
 }
+.warning-card-ok {
+    cursor: pointer;
+    background: rgb(0, 204, 41);
+    color: #ffffff;
+    font-weight: bold;
+    animation: pulse 1s infinite;
+}
 
 .warning-card-active h4 {
     font-weight: 500 !important;
@@ -80,4 +87,15 @@
     opacity: 1.0;
     cursor: pointer;
     background-color: #f00;
+}
+
+.warning {
+    opacity: 1.0;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    animation: pulse 1s infinite;
+    border: 2px solid #f00;
+}
+.warning p{
+    color: #f00 !important;
 }
